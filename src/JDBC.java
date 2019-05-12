@@ -111,7 +111,7 @@ public class JDBC {
 
 
 
-       private LinkedList<String> getTranscript (String id) throws SQLException {
+       private LinkedList<String> getTranscript (String id) throws SQLException { //change to void
             //Prepared statements for Transcript
             //String selectTrans = "SELECT course_number, course_title, semester, year, grade, credits FROM STUDENT LEFT OUTTER JOIN COURSE WHERE USER_ID = ?"; //ask about this
            //tables: Course, table section, takes
@@ -141,6 +141,7 @@ public class JDBC {
            linkedlist.add("Grade");
            linkedlist.add("Credits");
 
+           //print(linkedlist);
            return linkedlist;
         }
 
@@ -154,10 +155,46 @@ public class JDBC {
 //        }
 //
 //
-//        private void addCourse (int id, String courseNum) {
-//
-//
-//        }
+        private void addCourse (String id) {
+            System.out.println("Enter the year for course, eg 2019 ");
+            Scanner sc = new Scanner(System.in);
+            String year = sc.next;
+
+            //if year isn't entered correctly
+            if (year.length() != 4) {
+                System.out.println("Year entered incorrectly");
+                addCourse(id);
+            }
+
+
+            System.out.println("Enter the semester for course ");
+            Scanner scan = new Scanner(System.in);
+            String sem = scan.next;
+
+
+
+
+
+        }
+
+        private void removeCourse(String id, String courseNum) {
+            System.out.println("Enter the year for course, eg 2019 ");
+            Scanner sc = new Scanner(System.in);
+            String year = sc.next;
+
+            //if year isn't entered correctly
+            if (year.length() != 4) {
+                System.out.println("Year entered incorrectly");
+                addCourse(id, courseNum);
+            }
+
+
+            System.out.println("Enter the semester for course ");
+            Scanner scan = new Scanner(System.in);
+            String sem = scan.next;
+
+
+        }
 //    private List<Student> getAllStudents() {
 //            Connection connection = getConnection();
 //
